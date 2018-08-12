@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+  const pressed = [];
+  const secretCode = 'wesbos';
+  window.addEventListener('keyup', (e) => {
+    console.log(e.key);
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    if(pressed.join('').includes(secretCode)) {
+      console.log('DING DING!');
+      cornify_add();
+    }
+    console.log(pressed);
+  });
+</script>
+</body>
+</html>
+
+<script>
+  // 1. Log each key pressed into the console
+  // window.addEventListener('keyup', (e) => {
+  //   console.log(e.key);
+  // })
+  // 2. Create pressed array
+  // const pressed = [];
+  // 3. Create secret code
+  // const secretCode = 'wesbos';
+  // 4. Push each typed key into an array
+  // pressed.push(e.key);
+  // 5. Limit the array to the number of characters in the secret code by removing the first character out of the array as new items are added
+  // pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  // 6. Check IF the array contains the secret code. .join makes it into a string
+  // if(pressed.join('').includes(secretCode)) {
+  //   console.log('DING DING!');
+  // }
+  // 7. (OPTIONAL) Add fun affect to if statement
+  // if(pressed.join('').includes(secretCode)) {
+  //     console.log('DING DING!');
+  //     cornify_add();
+  //   }
+</script>
